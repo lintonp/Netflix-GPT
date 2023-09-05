@@ -1,8 +1,30 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
+import {
+  validateSignInForm,
+  validateSignUpForm,
+} from "../Utils/FormValidations";
 
 const LoginPage = () => {
   const [signUp, setSignUp] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const email = useRef();
+  const password = useRef();
+  const name = useRef();
+
+  const handleOnClick = () => {
+    const errMsg = signUp
+      ? validateSignUpForm(
+          name.current.value,
+          email.current.value,
+          password.current.value
+        )
+      : validateSignInForm(email.current.value, password.current.value);
+    console.log(errMsg);
+    setErrorMessage(errMsg);
+  };
+
   return (
     <div>
       <Header />
@@ -20,22 +42,31 @@ const LoginPage = () => {
         </h1>
         {signUp && (
           <input
+            ref={name}
             className="p-3 m-2 w-full bg-slate-600 rounded-md opacity-100 font-medium"
             type="text"
             placeholder="Full Name"
           />
         )}
         <input
+          ref={email}
           className="p-3 m-2 w-full bg-slate-600 rounded-md opacity-100 font-medium"
           type="text"
           placeholder="Email or phone number"
         />
         <input
+          ref={password}
           className="p-3 m-2 w-full bg-slate-600 rounded-md opacity-100 font-medium"
           type="password"
           placeholder="Password"
         />
-        <button className="bg-red-600 my-6 w-full p-2 rounded-md font-semibold  opacity-100">
+        {errorMessage && (
+          <p className="p-1 m-1 text-red-600 font-medium">{errorMessage}</p>
+        )}
+        <button
+          className="bg-red-600 my-6 w-full p-2 rounded-md font-semibold  opacity-100"
+          onClick={handleOnClick}
+        >
           {signUp ? "Sign Up" : "Sign In"}
         </button>
         <div className="mt-4 opacity-100">
