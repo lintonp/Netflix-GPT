@@ -8,7 +8,8 @@ const userSlice = createSlice({
       return action.payload;
     },
     removeUser: (state) => {
-      state = {};
+      // state = {};
+      return {};
     },
   },
 });

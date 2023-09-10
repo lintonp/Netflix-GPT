@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -6,7 +6,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 //import reportWebVitals from './reportWebVitals';
 
 import LoginPage from "./Components/LoginPage";
-import BrowsePage from "./Components/BrowsePage";
+
+const BrowsePage = lazy(() => import("./Components/BrowsePage"));
 
 const CBR = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const CBR = createBrowserRouter([
       },
       {
         path: "/browse",
-        element: <BrowsePage />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <BrowsePage />
+          </Suspense>
+        ),
       },
     ],
   },

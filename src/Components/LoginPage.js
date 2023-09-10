@@ -5,7 +5,20 @@ import {
   validateSignUpForm,
 } from "../Utils/FormValidations";
 
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { auth } from "../Utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../Store/userSlice";
+import { useNavigate } from "react-router-dom";
+
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [signUp, setSignUp] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -23,6 +36,55 @@ const LoginPage = () => {
       : validateSignInForm(email.current.value, password.current.value);
     console.log(errMsg);
     setErrorMessage(errMsg);
+
+    if (errMsg === null) {
+      //Sign In/Up User
+      if (signUp) {
+        //Sign Up
+        createUserWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            // console.log(user);
+            // const { uid, displayName, email } = user;
+            // dispatch(addUser({ uid, displayName, email }));
+            // navigate("/browse");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setErrorMessage(errorCode + " - " + errorMessage);
+            // ..
+          });
+      } else {
+        //Sign In
+        signInWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((userCredential) => {
+            // Signed in
+            console.log("sing in then block");
+            const user = userCredential.user;
+            // console.log(user);
+            // const { uid, displayName, email } = user;
+            // dispatch(addUser({ uid, displayName, email }));
+            // navigate("/browse");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setErrorMessage(errorCode + " - " + errorMessage);
+          });
+      }
+    }
+
+    //Set name and password to "";
   };
 
   return (
