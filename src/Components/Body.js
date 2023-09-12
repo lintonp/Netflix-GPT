@@ -2,10 +2,10 @@ import { useSelector } from "react-redux";
 import VideoContainer from "./VideoContainer";
 
 const Body = () => {
-  const user = useSelector((store) => store.state);
-  console.log(user);
+  const user = useSelector((store) => store.user);
+  console.log("Body", user);
   return (
-    <div className="">
+    <div className="w-screen">
       <VideoContainer />
       {/* 
       Video Container
