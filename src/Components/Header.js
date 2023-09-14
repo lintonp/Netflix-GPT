@@ -36,9 +36,15 @@ const Header = () => {
       }
     });
   }, []);
-
+  const isSignedIn = Object.keys(user).length !== 0;
   return (
-    <div className="absolute z-10 flex justify-between w-full bg-gradient-to-b from-black">
+    <div
+      className={
+        isSignedIn
+          ? "absolute z-10 flex justify-between w-full bg-black"
+          : "absolute z-10 flex justify-between w-full bg-gradient-to-b from-black"
+      }
+    >
       <div>
         <img className="h-12 mt-2" alt="Netflix Logo" src={netflixLogo} />
       </div>
