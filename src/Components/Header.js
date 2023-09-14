@@ -11,6 +11,8 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
 
+  const isSignedIn = Object.keys(user).length !== 0;
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -36,7 +38,7 @@ const Header = () => {
       }
     });
   }, []);
-  const isSignedIn = Object.keys(user).length !== 0;
+
   return (
     <div
       className={

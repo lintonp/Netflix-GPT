@@ -11,14 +11,11 @@ const useMovieTrailer = (id) => {
       TMDB_Options
     );
     const json = await data.json();
-    console.log("useMovieTrailer - json", json);
     const filteredData = json?.results.filter(
       (video) => video.type === "Trailer"
     );
-    console.log("useMovieTrailer - filteredData", filteredData);
 
     const MovieData = !filteredData ? json?.results[0] : filteredData[0];
-    console.log("useMovieTrailer - MovieData", MovieData);
     dispatch(setDisplayMovie(MovieData));
     return MovieData.key;
   };

@@ -34,7 +34,7 @@ const LoginPage = () => {
           password.current.value
         )
       : validateSignInForm(email.current.value, password.current.value);
-    console.log(errMsg);
+
     setErrorMessage(errMsg);
 
     if (errMsg === null) {
@@ -69,12 +69,8 @@ const LoginPage = () => {
         )
           .then((userCredential) => {
             // Signed in
-            console.log("sing in then block");
-            const user = userCredential.user;
-            // console.log(user);
-            // const { uid, displayName, email } = user;
-            // dispatch(addUser({ uid, displayName, email }));
-            // navigate("/browse");
+            // console.log("sing in then block");
+            // const user = userCredential.user;
           })
           .catch((error) => {
             const errorCode = error.code;

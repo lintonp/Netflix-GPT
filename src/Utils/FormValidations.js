@@ -3,7 +3,6 @@ export const validateSignInForm = (email, password) => {
   const passwordRegex =
     /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])[A-Za-z\d@#$%^&+=!]{8,}$/;
 
-  console.log(emailRegex.test(email));
   if (!emailRegex.test(email)) {
     return "Email Invalid";
   }

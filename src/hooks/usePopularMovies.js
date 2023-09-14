@@ -1,0 +1,29 @@
+import { PopularMovies_API, TMDB_Options } from "../Utils/Constants";
+import { useDispatch } from "react-redux";
+import { addPopularMovies } from "../Store/movieSlice";
+import { useEffect } from "react";
+
+const usePopularMovies = () => {
+  const dispatch = useDispatch();
+
+  const getMoviesData = async () => {
+    const data = await fetch(PopularMovies_API, TMDB_Options);
+    const json = await data.json();
+    console.log("usePopularMovies getMoviesData", json);
+    dispatch(addPopularMovies(json));
+  };
+
+  useEffect(() => {
+    getMoviesData();
+  }, []);
+};
+
+export default usePopularMovies;
+
+// const usePopularMovies = () => {
+//   return (
+//     <div>usePopularMovies</div>
+//   )
+// }
+
+// export default usePopularMovies

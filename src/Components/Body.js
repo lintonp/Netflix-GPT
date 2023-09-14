@@ -1,21 +1,11 @@
-import { useSelector } from "react-redux";
 import VideoContainer from "./VideoContainer";
+import VideoListContainer from "./VideoListContainer";
 
 const Body = () => {
-  const user = useSelector((store) => store.user);
-  console.log("Body", user);
   return (
-    <div className="w-screen">
+    <div className="w-screen flex flex-col">
       <VideoContainer />
-      {/* 
-      Video Container
-        -Video in background
-        -Video Title
-      Videos list Container
-        -now playing
-        -top
-        -genres
-    */}
+      <VideoListContainer />
     </div>
   );
 };

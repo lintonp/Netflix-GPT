@@ -9,9 +9,9 @@ const VideoTrailer = ({ id }) => {
   if (!movie) return;
 
   return (
-    <div className="relative mt-11">
+    <div className="mt-11">
       <iframe
-        className="absolute  w-screen aspect-video"
+        className="absolute w-screen aspect-video"
         src={
           "https://www.youtube.com/embed/" + movie.key + "?autoplay=1?vq=hd720p"
         }

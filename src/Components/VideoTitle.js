@@ -15,20 +15,6 @@ const VideoTitle = ({ title, description }) => {
       </div>
     </div>
   );
-  // return (
-  //   <div className="mx-12 mt-96 p-2 absolute bg-black bg-opacity-5">
-  //     <h1 className="text-4xl font-extrabold">{title}</h1>
-  //     <p className="text-lg w-1/3">{description}</p>
-  //     <div className="my-2">
-  //       <button className="px-8 py-2 text-xl font-semibold mx-2 rounded-lg bg-black text-white hover:bg-slate-900">
-  //         Play
-  //       </button>
-  //       <button className="px-8 py-2 text-xl mx-2 rounded-lg bg-slate-400 text-black opacity-90 hover:opacity-80">
-  //         More Info
-  //       </button>
-  //     </div>
-  //   </div>
-  // );
 };
-// bg-gradient-to-r from-slate-200
+
 export default VideoTitle;
