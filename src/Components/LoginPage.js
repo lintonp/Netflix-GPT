@@ -8,17 +8,11 @@ import {
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useDispatch } from "react-redux";
-import { addUser } from "../Store/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Netflix_BG_Image_URL } from "../Utils/Constants";
 
 const LoginPage = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const [signUp, setSignUp] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -86,11 +80,7 @@ const LoginPage = () => {
   return (
     <div>
       <Header />
-      <img
-        className="absolute"
-        alt="Background"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/855ed6e2-d9f1-4afd-90da-96023ec747c3/85eb5b91-25ed-4965-ace9-ba8e4a0ead8d/IN-en-20230828-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-      />
+      <img className="absolute" alt="Background" src={Netflix_BG_Image_URL} />
       <form
         className="absolute bg-black text-white p-12 mx-auto left-0 right-0 my-32 w-3/12 bg-opacity-80 rounded-md  flex flex-col items-center"
         onSubmit={(e) => e.preventDefault()}

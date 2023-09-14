@@ -5,6 +5,7 @@ import { setDisplayMovie } from "../Store/movieSlice";
 
 const useMovieTrailer = (id) => {
   const dispatch = useDispatch();
+
   const fetchMovieData = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/" + id + "/videos?language=en-US",
