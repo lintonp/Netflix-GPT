@@ -55,13 +55,13 @@ const Header = () => {
       }
     >
       <div>
-        <img className="h-12 mt-2" alt="Netflix Logo" src={netflixLogo} />
+        <img className="h-14 mt-2" alt="Netflix Logo" src={netflixLogo} />
       </div>
       {Object.keys(user).length !== 0 && (
         <div>
           <button
             onClick={handleGPT}
-            className="bg-purple-700 text-white mx-2 my-2 px-2 py-1 font-semibold rounded-lg text-lg"
+            className="bg-purple-700 text-white mx-2 my-3 px-2 py-1 font-semibold rounded-lg text-lg"
           >
             {gpt ? "GPT" : "Browse Page"}
           </button>
