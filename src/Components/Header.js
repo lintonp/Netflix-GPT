@@ -14,11 +14,11 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const gpt = useSelector((store) => store.gpt.showGPT);
-
   const isSignedIn = Object.keys(user).length !== 0;
 
   const handleGPT = () => {
     dispatch(toggleGPT());
+    navigate(gpt === true ? "/browse" : "/browse/gpt");
   };
 
   const handleSignOut = () => {
@@ -62,24 +62,19 @@ const Header = () => {
         <div>
           <select
             onChange={(e) => dispatch(updateLang(e.target.value))}
-            className="bg-black text-white font-semibold my-2 mx-4 p-1 rounded-md shadow-md shadow-slate-800"
+            className="bg-black text-white font-semibold my-2 mx-4 p-1 rounded-md shadow-md shadow-slate-800 border border-slate-800"
           >
             {Object.keys(languageData).map((key) => (
               <option key={key} value={key}>
                 {languageData[key].lang}
               </option>
             ))}
-            {/* <option value="en" defaultChecked>
-              English
-            </option>
-            <option value="hi">Hindi</option>
-            <option value="mr">Marathi</option> */}
           </select>
           <button
             onClick={handleGPT}
             className="bg-purple-700 text-white mx-2 my-3 px-2 py-1 font-semibold rounded-lg text-lg"
           >
-            {gpt ? "GPT" : "Browse Page"}
+            {gpt === false ? "GPT" : "Browse Page"}
           </button>
           <button
             onClick={handleSignOut}

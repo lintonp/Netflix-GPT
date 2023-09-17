@@ -42,11 +42,7 @@ const LoginPage = () => {
         )
           .then((userCredential) => {
             // Signed in
-            const user = userCredential.user;
-            // console.log(user);
-            // const { uid, displayName, email } = user;
-            // dispatch(addUser({ uid, displayName, email }));
-            // navigate("/browse");
+            // const user = userCredential.user;
           })
           .catch((error) => {
             const errorCode = error.code;

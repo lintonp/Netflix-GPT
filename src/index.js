@@ -6,6 +6,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 //import reportWebVitals from './reportWebVitals';
 
 import LoginPage from "./Components/LoginPage";
+import GPTpage from "./Components/GPTpage";
+import Body from "./Components/Body";
 
 const BrowsePage = lazy(() => import("./Components/BrowsePage"));
 
@@ -25,6 +27,24 @@ const CBR = createBrowserRouter([
             <BrowsePage />
           </Suspense>
         ),
+        children: [
+          {
+            path: "/browse",
+            element: (
+              <Suspense fallback={<h1>Loading...</h1>}>
+                <Body />
+              </Suspense>
+            ),
+          },
+          {
+            path: "/browse/gpt",
+            element: (
+              <Suspense fallback={<h1>Loading...</h1>}>
+                <GPTpage />
+              </Suspense>
+            ),
+          },
+        ],
       },
     ],
   },
