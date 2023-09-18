@@ -8,7 +8,7 @@ const GPTResults = () => {
   if (!movies) return;
 
   return (
-    <div className="absolute z-10 mt-[55%] md:mt-56 mx-auto left-0 right-0">
+    <div className="absolute z-10 mt-[70%] md:mt-56 mx-auto left-0 right-0">
       <div className="mx-6 bg-black bg-opacity-80 md:p-6">
         <VideoList title="Results" movies={movies} />
       </div>

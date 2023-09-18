@@ -8,7 +8,7 @@ const VideoContainer = () => {
   if (!movies) return;
 
   const { id, original_title, overview } = movies?.results[1];
-  console.log(id);
+
   return (
     <div className="">
       <VideoTrailer id={id} />

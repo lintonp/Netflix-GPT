@@ -65,25 +65,27 @@ const Header = () => {
       </div>
       {Object.keys(user).length !== 0 && (
         <div className="mx-auto md:mx-0">
-          <select
-            onChange={(e) => dispatch(updateLang(e.target.value))}
-            className="bg-black text-white font-semibold my-2 mx-4 p-1 rounded-md shadow-md shadow-purple-800 border border-slate-800"
-          >
-            {Object.keys(languageData).map((key) => (
-              <option key={key} value={key}>
-                {languageData[key].lang}
-              </option>
-            ))}
-          </select>
+          {gpt && (
+            <select
+              onChange={(e) => dispatch(updateLang(e.target.value))}
+              className="bg-black text-white font-semibold my-2 mx-2 md:mx-4 p-1 rounded-md shadow-md shadow-purple-800 border border-slate-800"
+            >
+              {Object.keys(languageData).map((key) => (
+                <option key={key} value={key}>
+                  {languageData[key].lang}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             onClick={handleGPT}
-            className="bg-purple-700 text-white mx-2 my-3 px-2 py-1 font-semibold rounded-lg text-lg"
+            className="bg-purple-700 text-white mx-2 md:mx-2 my-3 px-2 py-1 font-semibold rounded-lg text-lg flex-wrap"
           >
             {gpt === false ? "GPT" : "Browse Page"}
           </button>
           <button
             onClick={handleSignOut}
-            className="font-bold text-lg text-white mx-4 my-2 p-1"
+            className="font-bold text-lg text-white mx-2 md:mx-4 my-2 p-1"
           >
             Sign Out
           </button>

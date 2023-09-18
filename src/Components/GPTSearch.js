@@ -46,7 +46,7 @@ const GPTSearch = () => {
   };
   return (
     <form
-      className="absolute bg-black bg-opacity-80 text-white mx-auto left-0 right-0 mt-40 w-screen md:w-1/2 rounded-lg grid grid-cols-12"
+      className="absolute bg-black bg-opacity-80 text-white mx-auto left-0 right-0 mt-48 md:mt-40 w-screen md:w-1/2 rounded-lg grid grid-cols-12"
       onSubmit={(e) => e.preventDefault()}
     >
       <input
