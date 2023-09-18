@@ -16,18 +16,18 @@ const LoginPage = () => {
   const [signUp, setSignUp] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const email = useRef();
-  const password = useRef();
-  const name = useRef();
+  const [name, setName] = useState("Test Account");
+  const [email, setEmail] = useState("test@netflix.com");
+  const [password, setPassword] = useState("Tester@123");
+
+  // const email = useRef();
+  // const password = useRef();
+  // const name = useRef();
 
   const handleOnClick = () => {
     const errMsg = signUp
-      ? validateSignUpForm(
-          name.current.value,
-          email.current.value,
-          password.current.value
-        )
-      : validateSignInForm(email.current.value, password.current.value);
+      ? validateSignUpForm(name, email, password)
+      : validateSignInForm(email, password);
 
     setErrorMessage(errMsg);
 
@@ -35,11 +35,7 @@ const LoginPage = () => {
       //Sign In/Up User
       if (signUp) {
         //Sign Up
-        createUserWithEmailAndPassword(
-          auth,
-          email.current.value,
-          password.current.value
-        )
+        createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             // Signed in
             // const user = userCredential.user;
@@ -52,11 +48,7 @@ const LoginPage = () => {
           });
       } else {
         //Sign In
-        signInWithEmailAndPassword(
-          auth,
-          email.current.value,
-          password.current.value
-        )
+        signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             // Signed in
             // console.log("sing in then block");
@@ -90,20 +82,26 @@ const LoginPage = () => {
         </h1>
         {signUp && (
           <input
-            ref={name}
+            // ref={name}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             className="p-3 m-2 w-full bg-slate-600 rounded-md opacity-100 font-medium"
             type="text"
             placeholder="Full Name"
           />
         )}
         <input
-          ref={email}
+          // ref={email}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="p-3 m-2 w-full bg-slate-600 rounded-md opacity-100 font-medium"
           type="text"
           placeholder="Email or phone number"
         />
         <input
-          ref={password}
+          // ref={password}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="p-3 m-2 w-full bg-slate-600 rounded-md opacity-100 font-medium"
           type="password"
           placeholder="Password"
