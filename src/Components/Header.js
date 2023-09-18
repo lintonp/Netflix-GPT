@@ -52,15 +52,19 @@ const Header = () => {
     <div
       className={
         isSignedIn && gpt
-          ? "absolute z-10 flex justify-between w-full bg-black"
-          : "absolute z-10 flex justify-between w-full bg-gradient-to-br from-black"
+          ? "absolute z-10 flex flex-col md:flex-row justify-between w-full bg-black"
+          : "absolute z-10 flex flex-col md:flex-row justify-between w-full bg-gradient-to-br from-black"
       }
     >
       <div>
-        <img className="h-14 mt-2" alt="Netflix Logo" src={netflixLogo} />
+        <img
+          className="h-14 mt-2 mx-auto md:mx-0"
+          alt="Netflix Logo"
+          src={netflixLogo}
+        />
       </div>
       {Object.keys(user).length !== 0 && (
-        <div>
+        <div className="mx-auto md:mx-0">
           <select
             onChange={(e) => dispatch(updateLang(e.target.value))}
             className="bg-black text-white font-semibold my-2 mx-4 p-1 rounded-md shadow-md shadow-purple-800 border border-slate-800"

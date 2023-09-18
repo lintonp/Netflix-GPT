@@ -76,9 +76,13 @@ const LoginPage = () => {
   return (
     <div>
       <Header />
-      <img className="absolute" alt="Background" src={Netflix_BG_Image_URL} />
+      <img
+        className="absolute h-screen object-cover md:w-screen"
+        alt="Background"
+        src={Netflix_BG_Image_URL}
+      />
       <form
-        className="absolute bg-black text-white p-12 mx-auto left-0 right-0 my-32 w-3/12 bg-opacity-80 rounded-md  flex flex-col items-center"
+        className="absolute bg-black text-white p-12 mx-auto left-0 right-0 my-32 w-10/12 md:w-3/12 bg-opacity-80 rounded-md  flex flex-col items-center"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="font-semibold text-2xl m-5">

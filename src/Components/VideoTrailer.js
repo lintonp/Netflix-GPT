@@ -9,7 +9,7 @@ const VideoTrailer = ({ id }) => {
   if (!movie) return;
 
   return (
-    <div className="mt-11">
+    <div className="mt-[30%] md:mt-11">
       <iframe
         className="absolute w-screen aspect-video"
         src={

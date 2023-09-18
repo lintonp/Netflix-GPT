@@ -46,7 +46,7 @@ const GPTSearch = () => {
   };
   return (
     <form
-      className="absolute bg-black bg-opacity-80 text-white mx-auto left-0 right-0 mt-40 w-1/2 rounded-lg grid grid-cols-12"
+      className="absolute bg-black bg-opacity-80 text-white mx-auto left-0 right-0 mt-40 w-screen md:w-1/2 rounded-lg grid grid-cols-12"
       onSubmit={(e) => e.preventDefault()}
     >
       <input
@@ -57,7 +57,7 @@ const GPTSearch = () => {
       />
       <button
         onClick={handleSearch}
-        className="bg-red-600 p-2 rounded-md font-bold text-lg col-span-3 mr-2 my-2"
+        className="bg-red-600 p-2 rounded-md font-bold text-sm md:text-lg col-span-3 mr-2 my-2"
       >
         {languageData[code].search}
       </button>

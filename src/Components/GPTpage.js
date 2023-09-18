@@ -5,7 +5,11 @@ import GPTSearch from "./GPTSearch";
 const GPTpage = () => {
   return (
     <div>
-      <img className="fixed" alt="Background" src={Netflix_BG_Image_URL} />
+      <img
+        className="fixed h-screen object-cover md:w-screen"
+        alt="Background"
+        src={Netflix_BG_Image_URL}
+      />
       <GPTSearch />
       <GPTResults />
     </div>
