@@ -6,20 +6,28 @@ const GPTSlice = createSlice({
     showGPT: false,
     searchResults: null,
     searchError: "",
+    searching: false,
   },
   reducers: {
     toggleGPT: (state) => {
       state.showGPT = !state.showGPT;
     },
     addSearchResults: (state, action) => {
-      state.searchResults = action.payload;
+      return { ...state, searchResults: action.payload, searching: false };
     },
     updateSearchErrorMessage: (state, action) => {
-      state.searchError = action.payload;
+      return { ...state, searchError: action.payload, searching: false };
+    },
+    toggleIsSearching: (state) => {
+      state.searching = !state.searching;
     },
   },
 });
 
-export const { toggleGPT, addSearchResults, updateSearchErrorMessage } =
-  GPTSlice.actions;
+export const {
+  toggleGPT,
+  addSearchResults,
+  updateSearchErrorMessage,
+  toggleIsSearching,
+} = GPTSlice.actions;
 export default GPTSlice.reducer;

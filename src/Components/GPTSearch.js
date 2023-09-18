@@ -2,12 +2,18 @@ import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { languageData } from "../Utils/Languages";
 import { Search_Movie_API, TMDB_Options, openai } from "../Utils/Constants";
-import { addSearchResults, updateSearchErrorMessage } from "../Store/GPTSlice";
+import {
+  addSearchResults,
+  toggleIsSearching,
+  updateSearchErrorMessage,
+} from "../Store/GPTSlice";
+import { capitalizeFirstLetter } from "../Utils/Helper";
 
-const GPTSearch = () => {
+const GPTSearch = ({ setTitle }) => {
   const dispatch = useDispatch();
   const search = useRef();
   const code = useSelector((store) => store.configs.langCode);
+  const errorMessage = useSelector((store) => store.gpt.searchError);
 
   const fetchTMDBforMovieName = async (movieName) => {
     const data = await fetch(
@@ -36,32 +42,41 @@ const GPTSearch = () => {
       //process results if key is not expired
     } catch (error) {
       //ask user for his api key to continue with GPT results
-      dispatch(updateSearchErrorMessage(error.message));
+      dispatch(updateSearchErrorMessage("GPT: " + error.message));
       fetchTMDBforMovieName(searchQuery);
     }
   };
 
   const handleSearch = () => {
-    fetchGPT(search.current.value);
+    dispatch(toggleIsSearching());
+    setTitle(capitalizeFirstLetter(search.current.value));
+    if (search.current.value === "" || search.current.value === null) {
+      dispatch(updateSearchErrorMessage("Please enter a movie name to search"));
+    } else {
+      fetchGPT(search.current.value);
+    }
   };
+
   return (
-    <form
-      className="absolute bg-black bg-opacity-80 text-white mx-auto left-0 right-0 mt-48 md:mt-40 w-screen md:w-1/2 rounded-lg grid grid-cols-12"
-      onSubmit={(e) => e.preventDefault()}
-    >
-      <input
-        ref={search}
-        type="text"
-        className="p-2 my-2 ml-3 mr-2 text-black col-span-9 rounded-lg"
-        placeholder={languageData[code].placeholder}
-      />
-      <button
-        onClick={handleSearch}
-        className="bg-red-600 p-2 rounded-md font-bold text-sm md:text-lg col-span-3 mr-2 my-2"
-      >
-        {languageData[code].search}
-      </button>
-    </form>
+    <div className="absolute bg-black bg-opacity-80 text-white mx-auto left-0 right-0 mt-48 md:mt-40 w-screen md:w-1/2 rounded-lg">
+      <form className="grid grid-cols-12" onSubmit={(e) => e.preventDefault()}>
+        <input
+          ref={search}
+          type="text"
+          className="py-2 px-3 my-2 ml-3 mr-2 text-black col-span-9 rounded-lg"
+          placeholder={languageData[code].placeholder}
+        />
+        <button
+          onClick={handleSearch}
+          className="bg-red-600 p-2 rounded-md font-bold text-sm md:text-lg col-span-3 mr-2 my-2"
+        >
+          {languageData[code].search}
+        </button>
+      </form>
+      {errorMessage !== "" && (
+        <p className="text-red-600 px-2 pb-2 mx-4 font-bold">{errorMessage}</p>
+      )}
+    </div>
   );
 };
 

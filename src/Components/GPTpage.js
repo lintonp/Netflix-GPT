@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Netflix_BG_Image_URL } from "../Utils/Constants";
 import GPTResults from "./GPTResults";
 import GPTSearch from "./GPTSearch";
 
 const GPTpage = () => {
+  const [searchText, setSearchText] = useState("");
   return (
     <div>
       <img
@@ -10,8 +12,8 @@ const GPTpage = () => {
         alt="Background"
         src={Netflix_BG_Image_URL}
       />
-      <GPTSearch />
-      <GPTResults />
+      <GPTSearch setTitle={setSearchText} />
+      <GPTResults title={searchText} />
     </div>
   );
 };
