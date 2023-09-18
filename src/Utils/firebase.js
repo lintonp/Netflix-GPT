@@ -7,15 +7,15 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBqy3OIGwOWkU-7t64yV6NcehoKwroDmHo",
+  apiKey: process.env.REACT_APP_firebase_API_KEY,
   authDomain: "netflixgpt-8c5a9.firebaseapp.com",
   projectId: "netflixgpt-8c5a9",
   storageBucket: "netflixgpt-8c5a9.appspot.com",
   messagingSenderId: "165823922092",
-  appId: "1:165823922092:web:1bb229ea0db90d52234409",
+  appId: process.env.REACT_APP_firebase_API_ID,
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth();

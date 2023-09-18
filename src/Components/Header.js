@@ -53,7 +53,7 @@ const Header = () => {
       className={
         isSignedIn && gpt
           ? "absolute z-10 flex justify-between w-full bg-black"
-          : "absolute z-10 flex justify-between w-full bg-gradient-to-b from-black"
+          : "absolute z-10 flex justify-between w-full bg-gradient-to-br from-black"
       }
     >
       <div>
@@ -63,7 +63,7 @@ const Header = () => {
         <div>
           <select
             onChange={(e) => dispatch(updateLang(e.target.value))}
-            className="bg-black text-white font-semibold my-2 mx-4 p-1 rounded-md shadow-md shadow-slate-800 border border-slate-800"
+            className="bg-black text-white font-semibold my-2 mx-4 p-1 rounded-md shadow-md shadow-purple-800 border border-slate-800"
           >
             {Object.keys(languageData).map((key) => (
               <option key={key} value={key}>
