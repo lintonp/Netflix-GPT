@@ -8,12 +8,13 @@ const VideoListShimmerUI = ({ title }) => {
         <VideoCardShimmerUI />
         <VideoCardShimmerUI />
         <VideoCardShimmerUI />
-        <VideoCardShimmerUI />
-        <VideoCardShimmerUI />
-        <VideoCardShimmerUI />
-        <VideoCardShimmerUI />
-        <VideoCardShimmerUI />
-        <VideoCardShimmerUI />
+        <div className="hidden md:inline-block">
+          <VideoCardShimmerUI />
+          <VideoCardShimmerUI />
+          <VideoCardShimmerUI />
+          <VideoCardShimmerUI />
+          <VideoCardShimmerUI />
+        </div>
       </div>
     </div>
   );
