@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { TMDB_Options } from "../Utils/Constants";
 import { useEffect } from "react";
-import { setDisplayMovie } from "../Store/movieSlice";
+import { setDisplayMovie, setmodalMovie } from "../Store/movieSlice";
 
-const useMovieTrailer = (id) => {
+const useMovieTrailer = (id, updateStore) => {
   const dispatch = useDispatch();
 
   const fetchMovieData = async () => {
@@ -17,7 +17,9 @@ const useMovieTrailer = (id) => {
     );
 
     const MovieData = !filteredData ? json?.results[0] : filteredData[0];
-    dispatch(setDisplayMovie(MovieData));
+    updateStore
+      ? dispatch(setDisplayMovie(MovieData))
+      : dispatch(setmodalMovie(MovieData));
     return MovieData.key;
   };
 

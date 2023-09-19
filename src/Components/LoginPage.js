@@ -96,7 +96,7 @@ const LoginPage = () => {
           onChange={(e) => setEmail(e.target.value)}
           className="p-3 m-2 w-full bg-slate-600 rounded-md opacity-100 font-medium"
           type="text"
-          placeholder="Email or phone number"
+          placeholder="Email"
         />
         <input
           // ref={password}

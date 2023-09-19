@@ -25,6 +25,9 @@ export const Movie_Poster_URL = "https://image.tmdb.org/t/p/w200";
 export const Search_Movie_API =
   "https://api.themoviedb.org/3/search/movie?query=MOVIENAME&include_adult=false&language=en-US&page=1";
 
+export const Movie_Details_API =
+  "https://api.themoviedb.org/3/movie/MOVIEID?language=en-US";
+
 export const openai = new OpenAI({
   apiKey: process.env.REACT_APP_OPENAI_API_KEY, // defaults to process.env["REACT_APP_OPENAI_API_KEY"]
   dangerouslyAllowBrowser: true,

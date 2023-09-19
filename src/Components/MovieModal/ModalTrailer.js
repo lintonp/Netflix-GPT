@@ -1,17 +1,17 @@
 import React from "react";
-import useMovieTrailer from "../hooks/useMovieTrailer";
 import { useSelector } from "react-redux";
+import useMovieTrailer from "../../hooks/useMovieTrailer";
 
-const VideoTrailer = ({ id }) => {
-  const movie = useSelector((store) => store.movies.displayMovie);
-  useMovieTrailer(id, true);
+const ModalTrailer = ({ id }) => {
+  const movie = useSelector((store) => store.movies.modalMovie);
+  useMovieTrailer(id, false);
 
   if (!movie) return;
 
   return (
-    <div className="mt-[30%] md:mt-11">
+    <div className="relative ml-1 md:-ml-1">
       <iframe
-        className="absolute w-full aspect-video"
+        className="w-72 md:w-[440px] aspect-video"
         src={
           "https://www.youtube.com/embed/" + movie.key + "?autoplay=1?vq=hd720p"
         }
@@ -23,4 +23,4 @@ const VideoTrailer = ({ id }) => {
   );
 };
 
-export default VideoTrailer;
+export default ModalTrailer;
