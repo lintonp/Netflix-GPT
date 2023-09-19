@@ -7,12 +7,12 @@ const VideoContainer = () => {
 
   if (!movies) return;
 
-  const { id, original_title, overview } = movies?.results[1];
+  const movie = movies?.results[0];
 
   return (
     <div className="">
-      <VideoTrailer id={id} />
-      <VideoTitle title={original_title} description={overview} />
+      <VideoTrailer id={movie.id} />
+      <VideoTitle movie={movie} />
     </div>
   );
 };
