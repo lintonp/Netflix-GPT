@@ -11,7 +11,7 @@ const VideoListContainer = () => {
   );
 
   return (
-    <div className="relative md:absolute top-[23%] md:top-[125%] bg-black md:pl-4 bg-opacity-70 md:bg-opacity-100">
+    <div className="relative md:absolute top-[23%] md:top-[123%] bg-black md:pl-4 bg-opacity-70 md:bg-opacity-100">
       {nowPlayingMovies && (
         <VideoList title="Now Playing" movies={nowPlayingMovies?.results} />
       )}

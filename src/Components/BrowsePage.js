@@ -10,9 +10,8 @@ const BrowsePage = () => {
   useTopRatedMovies();
 
   return (
-    <div className="flex flex-col bg-gray-700 h-screen">
+    <div className="flex flex-col bg-black md:bg-gray-700 h-screen">
       <Header />
-      {/* {gpt ? <Body /> : <GPTpage />} */}
       <Outlet />
     </div>
   );

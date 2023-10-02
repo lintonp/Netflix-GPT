@@ -3,7 +3,7 @@ import VideoListContainer from "./VideoListContainer";
 
 const Body = () => {
   return (
-    <div className="w-screen flex flex-col">
+    <div className="flex flex-col">
       <VideoContainer />
       <VideoListContainer />
     </div>
