@@ -38,7 +38,7 @@ const GPTSearch = ({ setTitle }) => {
         messages: [{ role: "user", content: query }],
         model: "gpt-3.5-turbo",
       });
-      console.log(completion.choices);
+      // console.log(completion.choices);
       //process results if key is not expired
     } catch (error) {
       //ask user for his api key to continue with GPT results

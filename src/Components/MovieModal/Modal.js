@@ -8,7 +8,6 @@ const Modal = ({ isOpen, closeModal, movie }) => {
   const [movieDetails, setMovieDetails] = useState(null);
 
   const fetchMovieDetails = async () => {
-    console.log("fetchMovieDetails", movie);
     const data = await fetch(
       Movie_Details_API.replace("MOVIEID", movie.id),
       TMDB_Options
@@ -29,7 +28,7 @@ const Modal = ({ isOpen, closeModal, movie }) => {
       <div className="modal-overlay h-screen w-full md:w-9/12 bg-black bg-opacity-70 p-8 rounded-xl mt-4">
         <div className="modal-container bg-black text-white p-2 md:max-w-md mx-auto rounded shadow-lg shadow-slate-400 z-50 overflow-y-auto">
           <span
-            className="font-bold text-lg top-2 ml-96 px-5 cursor-pointer"
+            className="font-bold text-lg top-2 ml-[272px] md:ml-96 md:px-5 cursor-pointer"
             onClick={closeModal}
           >
             X
@@ -49,7 +48,9 @@ const Modal = ({ isOpen, closeModal, movie }) => {
               {/* <hr className="bg-slate-400" /> */}
               <p
                 onClick={() => setMovieOverview(!movieOverview)}
-                className={movieOverview ? "py-1" : "py-1 truncate"}
+                className={
+                  movieOverview ? "py-1 cursor-pointer" : "py-1 cursor-pointer"
+                }
               >
                 {movieDetails.overview}
               </p>

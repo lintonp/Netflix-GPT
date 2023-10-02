@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import useMovieTrailer from "../../hooks/useMovieTrailer";
+import ModalShimmarTrailer from "../ShimmerUI/ModalShimmarTrailer";
 
 const ModalTrailer = ({ id }) => {
   const movie = useSelector((store) => store.movies.modalMovie);
   useMovieTrailer(id, false);
 
-  if (!movie) return;
+  if (!movie) return <ModalShimmarTrailer />;
 
   return (
     <div className="relative ml-1 md:-ml-1">
