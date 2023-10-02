@@ -15,11 +15,11 @@ const VideoListContainer = () => {
       {nowPlayingMovies && (
         <VideoList title="Now Playing" movies={nowPlayingMovies?.results} />
       )}
-      {popularMovies && (
-        <VideoList title="Popular" movies={popularMovies?.results} />
-      )}
       {topRatedMovies && (
         <VideoList title="Top Rated" movies={topRatedMovies?.results} />
+      )}
+      {popularMovies && (
+        <VideoList title="Popular" movies={popularMovies?.results} />
       )}
     </div>
   );
