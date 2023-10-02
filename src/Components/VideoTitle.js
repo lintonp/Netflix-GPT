@@ -20,8 +20,9 @@ const VideoTitle = ({ movie }) => {
       </h1>
       <p className="hidden md:inline-block text-lg text-white">{overview}</p>
       <div className="flex my-1 md:my-4">
-        <button className="flex p-2 md:px-8 md:py-2 text-sm md:text-xl font-bold md:font-extrabold mx-2 rounded-lg bg-white text-black hover:opacity-80">
-          <img alt="play" src={playIcon} className="w-8 -ml-4" /> Play
+        <button className="hidden md:flex p-2 md:px-8 md:py-2 text-sm md:text-xl font-bold md:font-extrabold mx-2 rounded-lg bg-white text-black hover:opacity-80">
+          <img alt="play" src={playIcon} className="w-8 -ml-3" />
+          Play
         </button>
         <button
           onClick={handleOnClick}
