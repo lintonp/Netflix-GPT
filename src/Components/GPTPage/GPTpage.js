@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Netflix_BG_Image_URL } from "../Utils/Constants";
+import { Netflix_BG_Image_URL } from "../../Utils/Constants";
 import GPTResults from "./GPTResults";
 import GPTSearch from "./GPTSearch";
 

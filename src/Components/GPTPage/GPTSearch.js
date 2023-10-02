@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { languageData } from "../Utils/Languages";
-import { Search_Movie_API, TMDB_Options, openai } from "../Utils/Constants";
+import { languageData } from "../../Utils/Languages";
+import { Search_Movie_API, TMDB_Options, openai } from "../../Utils/Constants";
 import {
   addSearchResults,
   toggleIsSearching,
   updateSearchErrorMessage,
-} from "../Store/GPTSlice";
-import { capitalizeFirstLetter } from "../Utils/Helper";
+} from "../../Store/GPTSlice";
+import { capitalizeFirstLetter } from "../../Utils/Helper";
 
 const GPTSearch = ({ setTitle }) => {
   const dispatch = useDispatch();

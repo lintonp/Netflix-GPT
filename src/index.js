@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 //import reportWebVitals from './reportWebVitals';
 
 import LoginPage from "./Components/LoginPage";
-import GPTpage from "./Components/GPTpage";
+import GPTpage from "./Components/GPTPage/GPTpage";
 import Body from "./Components/Body";
 
 const BrowsePage = lazy(() => import("./Components/BrowsePage"));

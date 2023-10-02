@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import VideoList from "./VideoList";
-import VideoListShimmerUI from "./ShimmerUI/VideoListShimmerUI";
+import VideoList from "../VideoList";
+import VideoListShimmerUI from "../ShimmerUI/VideoListShimmerUI";
 
 const GPTResults = ({ title }) => {
   const movies = useSelector((store) => store.gpt.searchResults);
